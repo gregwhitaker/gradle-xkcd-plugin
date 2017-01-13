@@ -14,18 +14,13 @@
  * limitations under the License.
  */
 
-package com.github.gregwhitaker.gradle.xkcd
+package com.github.gregwhitaker.xkcd.plugin.tasks
 
-import spock.lang.Specification
+import org.gradle.api.DefaultTask
 
+class ComicTask extends DefaultTask {
 
-class XkcdPluginTest extends Specification {
+    ComicTask() {
 
-    def "dummy test"() {
-        when:
-        def test = true
-
-        then:
-        test
     }
 }

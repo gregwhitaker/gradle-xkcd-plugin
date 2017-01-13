@@ -14,15 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.gregwhitaker.gradle.xkcd
+package com.github.gregwhitaker.xkcd.plugin.tasks
 
-import org.gradle.api.Plugin
-import org.gradle.api.Project
-
-class XkcdPlugin implements Plugin<Project> {
-
-    @Override
-    void apply(Project project) {
-
-    }
+class RandomComicTask extends ComicTask {
 }
