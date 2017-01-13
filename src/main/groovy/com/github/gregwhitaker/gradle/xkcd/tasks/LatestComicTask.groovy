@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package com.github.gregwhitaker.gradle.xkcd
+package com.github.gregwhitaker.gradle.xkcd.tasks
 
-class XkcdPlugin {
+class LatestComicTask extends ComicTask {
+
 }

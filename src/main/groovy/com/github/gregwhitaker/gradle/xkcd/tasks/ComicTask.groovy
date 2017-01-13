@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
-package com.github.gregwhitaker.gradle.xkcd
+package com.github.gregwhitaker.gradle.xkcd.tasks
 
-class XkcdPlugin {
+import org.gradle.api.DefaultTask
+
+class ComicTask extends DefaultTask {
+
 }
