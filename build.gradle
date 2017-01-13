@@ -21,7 +21,6 @@ buildScan {
 
 apply plugin: 'com.gradle.plugin-publish'
 apply plugin: 'groovy'
-apply plugin: 'java'
 
 repositories {
     jcenter()
@@ -30,6 +29,11 @@ repositories {
 dependencies {
     compile gradleApi()
     compile localGroovy()
+    compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7'
+
+    testCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
+        exclude group: 'org.codehaus.groovy'
+    }
 }
 
 version = '1.0.0'

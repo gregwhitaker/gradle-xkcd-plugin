@@ -16,13 +16,16 @@
 
 package com.github.gregwhitaker.gradle.xkcd
 
-import org.gradle.api.Plugin
-import org.gradle.api.Project
+import spock.lang.Specification
 
-class XkcdPlugin implements Plugin<Project> {
 
-    @Override
-    void apply(Project project) {
+class XkcdPluginTest extends Specification {
 
+    def "dummy test"() {
+        when:
+        def test = true
+
+        then:
+        test
     }
 }

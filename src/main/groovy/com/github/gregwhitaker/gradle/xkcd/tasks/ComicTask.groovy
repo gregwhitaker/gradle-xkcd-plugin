@@ -20,4 +20,5 @@ import org.gradle.api.DefaultTask
 
 class ComicTask extends DefaultTask {
 
+
 }
