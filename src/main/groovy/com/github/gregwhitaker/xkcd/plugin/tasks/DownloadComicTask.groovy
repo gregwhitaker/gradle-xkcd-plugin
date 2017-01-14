@@ -46,7 +46,6 @@ class DownloadComicTask extends DefaultTask {
 
     @TaskAction
     void run() {
-        failIfNoComicSpecified()
         failIfComicIdAndLatestOrRandomIsSpecified()
 
         if (comic != null) {
@@ -55,6 +54,8 @@ class DownloadComicTask extends DefaultTask {
             downloadImage(latestImageUrl())
         } else if (random) {
             downloadImage(randomUrl())
+        } else {
+            downloadImage(latestImageUrl())
         }
     }
 
@@ -136,23 +137,12 @@ class DownloadComicTask extends DefaultTask {
     }
 
     /**
-     * Validates that either a comic id or latest or random is specified in
-     * the plugin configuration.
-     */
-    private void failIfNoComicSpecified() {
-        if (comic == null && !latest && !random) {
-            throw new Exception("No comic specified.  Please specify a comic or use the latest() " +
-                    "and random() configuration options")
-        }
-    }
-
-    /**
      * Validates that if a comic id is specified in the plugin configuration then
      * latest and random have not been specified.
      */
     private void failIfComicIdAndLatestOrRandomIsSpecified() {
         if (comic != null && (latest || random)) {
-            throw new Exception("The latest() and random() configuration options are not valid when " +
+            throw new Exception("The downloadLatest() and downloadRandom() configuration options are not valid when " +
                     "the comic property is set to a value")
         }
     }
