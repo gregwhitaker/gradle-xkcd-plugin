@@ -21,6 +21,8 @@ class LatestComicFunctionalTest extends Specification {
 
     def "retrieves latest comic metadata"() {
         given:
+        File image = new File("${testProjectDir.root}/images/latest.png")
+
         buildFile << """
             import com.github.gregwhitaker.xkcd.plugin.tasks.DownloadComicTask
             
@@ -43,6 +45,7 @@ class LatestComicFunctionalTest extends Specification {
                 .build()
 
         then:
+        image.exists()
         result.task(":latestComic").outcome == SUCCESS
     }
 }
