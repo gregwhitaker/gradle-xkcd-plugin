@@ -5,6 +5,7 @@ gradle-xkcd-plugin
 Gradle plugin for downloading web comics from [xkcd.com](http://xkcd.com).
 
 ##Usage
+Please see the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.github.gregwhitaker.xkcd) for instructions on including this plugin in your project.
 
 
 ##Bugs and Feedback
