@@ -41,7 +41,6 @@ class DownloadComicTask extends DefaultTask {
     File destination
 
     private boolean latest
-
     private boolean random
 
     @TaskAction
@@ -59,16 +58,27 @@ class DownloadComicTask extends DefaultTask {
         }
     }
 
+    /**
+     * Configures the plugin to download the latest comic.
+     */
     void downloadLatest() {
         this.latest = true
         this.random = false
     }
 
+    /**
+     * Configures the plugin to download a random comic.
+     */
     void downloadRandom() {
         this.random = true
         this.latest = false
     }
 
+    /**
+     * Gets the URL of the latest comic.
+     *
+     * @return url of the latest comic
+     */
     private String latestImageUrl() {
         return http.request(Method.GET, ContentType.JSON) {
             uri.path = '/info.0.json'
@@ -79,6 +89,11 @@ class DownloadComicTask extends DefaultTask {
         }
     }
 
+    /**
+     * Gets the URL of a random comic.
+     *
+     * @return url of a random comic
+     */
     private String randomUrl() {
         def latestNum = http.request(Method.GET, ContentType.JSON) {
             uri.path = '/info.0.json'
@@ -91,6 +106,12 @@ class DownloadComicTask extends DefaultTask {
         return imageUrl(latestNum)
     }
 
+    /**
+     * Gets the URL of a specific comic.
+     *
+     * @param id comic id
+     * @return url of the comic
+     */
     private String imageUrl(Integer id) {
         return http.request(Method.GET, ContentType.JSON) {
             uri.path = "${id}/info.0.json"
@@ -101,6 +122,12 @@ class DownloadComicTask extends DefaultTask {
         }
     }
 
+    /**
+     * Downloads the contents of the url to the destination file specified in
+     * the plugin configuration.
+     *
+     * @param url url of the content to download
+     */
     private void downloadImage(String url) {
         def fout = destination.newOutputStream()
         fout << new URL(url).openStream()
