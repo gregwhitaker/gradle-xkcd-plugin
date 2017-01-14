@@ -7,6 +7,32 @@ Gradle plugin for downloading web comics from [xkcd.com](http://xkcd.com).
 ##Usage
 Please see the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.github.gregwhitaker.xkcd) for instructions on including this plugin in your project.
 
+###Downloading the Latest Comic
+
+```$groovy
+task('generateComic', type: DownloadComicTask) {
+    destination = file('${testProjectDir.root}/images/latest.png')
+    downloadLatest()
+}   
+```
+
+###Downloading a Random Comic
+
+```$groovy
+task('generateComic', type: DownloadComicTask) {
+    destination = file('${testProjectDir.root}/images/latest.png')
+    downloadRandom()
+}   
+```
+
+###Downloading a Specific Comic
+
+```$groovy
+task('generateComic', type: DownloadComicTask) {
+    destination = file('${testProjectDir.root}/images/latest.png')
+    comic = 1629
+}   
+```
 
 ##Bugs and Feedback
 
