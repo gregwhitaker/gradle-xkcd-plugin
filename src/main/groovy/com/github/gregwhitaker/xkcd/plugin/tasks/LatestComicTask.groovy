@@ -16,6 +16,12 @@
 
 package com.github.gregwhitaker.xkcd.plugin.tasks
 
+import org.gradle.api.tasks.TaskAction
+
 class LatestComicTask extends ComicTask {
 
+    @TaskAction
+    void run() {
+
+    }
 }

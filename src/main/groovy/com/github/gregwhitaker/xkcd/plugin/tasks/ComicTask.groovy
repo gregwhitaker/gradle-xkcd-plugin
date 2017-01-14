@@ -16,11 +16,56 @@
 
 package com.github.gregwhitaker.xkcd.plugin.tasks
 
+import com.github.gregwhitaker.xkcd.plugin.tasks.model.Metadata
+import groovy.json.JsonSlurper
+import groovyx.net.http.ContentType
+import groovyx.net.http.HTTPBuilder
+import groovyx.net.http.Method
 import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.CacheableTask
+import org.gradle.api.tasks.OutputFile
+import org.gradle.api.tasks.ParallelizableTask
+import org.gradle.api.tasks.TaskAction
 
+@ParallelizableTask
+@CacheableTask
 class ComicTask extends DefaultTask {
 
-    ComicTask() {
+    @OutputFile
+    File destFile
 
+    private HTTPBuilder http = new HTTPBuilder('http://xkcd.com')
+
+    @TaskAction
+    void run() {
+        def metadata = getLatestMetadata()
+        boolean test = true
+    }
+
+    Metadata getLatestMetadata() {
+        return http.request(Method.GET, ContentType.JSON) {
+            uri.path = '/info.0.json'
+
+            response.success = { resp, json ->
+                def test = JsonSlurper.parseText(json)
+                json.responseData.results.each {
+                    println "  ${it.titleNoFormatting} : ${it.visibleUrl}"
+                }
+            }
+        }
+    }
+
+    Metadata getMetadata(String id) {
+        return http.request(Method.GET, ContentType.JSON) {
+            uri.path = "/$id/info.0.json"
+
+            response.success = { resp, json ->
+                def test = JsonSlurper.parseText(json)
+                json.responseData.results.each {
+                    println "  ${it.titleNoFormatting} : ${it.visibleUrl}"
+                    json = ""
+                }
+            }
+        }
     }
 }
