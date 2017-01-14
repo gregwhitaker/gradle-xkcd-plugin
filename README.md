@@ -1,5 +1,6 @@
 gradle-xkcd-plugin
 ===
+[![Build Status](https://travis-ci.org/gregwhitaker/gradle-xkcd-plugin.svg?branch=master)](https://travis-ci.org/gregwhitaker/gradle-xkcd-plugin)
 
 Gradle plugin for downloading web comics from [xkcd.com](http://xkcd.com).
 
