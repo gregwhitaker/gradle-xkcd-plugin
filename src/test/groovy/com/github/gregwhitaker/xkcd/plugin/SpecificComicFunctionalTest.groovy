@@ -39,13 +39,11 @@ class SpecificComicFunctionalTest extends Specification {
         File image = new File("${testProjectDir.root}/images/1.png")
 
         buildFile << """
-            import com.github.gregwhitaker.xkcd.plugin.tasks.DownloadComicTask
-            
             plugins {
                 id 'com.github.gregwhitaker.xkcd'
             }
 
-            task('generateComic', type: DownloadComicTask) {
+            xkcd {
                 destination = file('${testProjectDir.root}/images/1.png')
                 comic = 1
             }   
@@ -55,13 +53,13 @@ class SpecificComicFunctionalTest extends Specification {
         def result = GradleRunner.create()
                 .withDebug(true)
                 .withProjectDir(testProjectDir.root)
-                .withArguments('generateComic')
+                .withArguments('xkcd')
                 .withPluginClasspath()
                 .build()
 
         then:
         image.exists()
-        result.task(":generateComic").outcome == SUCCESS
+        result.task(":xkcd").outcome == SUCCESS
     }
 
 }

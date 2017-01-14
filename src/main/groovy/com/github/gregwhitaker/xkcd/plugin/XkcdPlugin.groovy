@@ -28,6 +28,6 @@ class XkcdPlugin implements Plugin<Project> {
     }
 
     void applyTasks(final Project project) {
-        project.task('downloadComic', type: DownloadComicTask, group: 'xkcd', description: 'Downloads comics from xkcd.com') {}
+        project.task('xkcd', type: DownloadComicTask, group: 'xkcd', description: 'Downloads comics from xkcd.com') {}
     }
 }
