@@ -19,6 +19,7 @@ buildScan {
     publishAlways()
 }
 
+apply plugin: 'java-gradle-plugin'
 apply plugin: 'com.gradle.plugin-publish'
 apply plugin: 'groovy'
 
@@ -31,8 +32,9 @@ dependencies {
     compile localGroovy()
     compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7'
 
+//    testCompile gradleTestKit()
     testCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
-        exclude group: 'org.codehaus.groovy'
+        exclude module: 'groovy-all'
     }
 }
 

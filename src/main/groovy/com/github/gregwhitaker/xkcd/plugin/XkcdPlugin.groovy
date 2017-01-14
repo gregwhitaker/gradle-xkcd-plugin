@@ -16,13 +16,18 @@
 
 package com.github.gregwhitaker.xkcd.plugin
 
+import com.github.gregwhitaker.xkcd.plugin.tasks.DownloadComicTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 class XkcdPlugin implements Plugin<Project> {
 
     @Override
-    void apply(Project project) {
+    void apply(final Project project) {
+        applyTasks(project)
+    }
 
+    void applyTasks(final Project project) {
+        project.task('downloadComic', type: DownloadComicTask, group: 'xkcd', description: 'Downloads comics from xkcd.com') {}
     }
 }
