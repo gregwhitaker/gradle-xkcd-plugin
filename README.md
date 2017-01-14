@@ -7,6 +7,8 @@ Gradle plugin for downloading web comics from [xkcd.com](http://xkcd.com).
 ##Usage
 Please see the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.github.gregwhitaker.xkcd) for instructions on including this plugin in your project.
 
+The plugin provides the custom task, `DownloadComicTask`, that you can configure as follows:
+
 ###Downloading the Latest Comic
 
 ```$groovy
