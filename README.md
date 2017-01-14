@@ -12,8 +12,8 @@ The plugin provides the custom task, `DownloadComicTask`, that you can configure
 ###Downloading the Latest Comic
 
 ```$groovy
-task('generateComic', type: DownloadComicTask) {
-    destination = file('${testProjectDir.root}/images/latest.png')
+task('myComic', type: DownloadComicTask) {
+    destination = file('${buildDir}/images/comic.png')
     downloadLatest()
 }   
 ```
@@ -21,8 +21,8 @@ task('generateComic', type: DownloadComicTask) {
 ###Downloading a Random Comic
 
 ```$groovy
-task('generateComic', type: DownloadComicTask) {
-    destination = file('${testProjectDir.root}/images/latest.png')
+task('myComic', type: DownloadComicTask) {
+    destination = file('${buildDir}/images/comic.png')
     downloadRandom()
 }   
 ```
@@ -30,8 +30,8 @@ task('generateComic', type: DownloadComicTask) {
 ###Downloading a Specific Comic
 
 ```$groovy
-task('generateComic', type: DownloadComicTask) {
-    destination = file('${testProjectDir.root}/images/latest.png')
+task('myComic', type: DownloadComicTask) {
+    destination = file('${buildDir}/images/comic.png')
     comic = 1629
 }   
 ```
