@@ -44,12 +44,13 @@ group = 'com.github.gregwhitaker'
 pluginBundle {
     website = 'https://github.com/gregwhitaker/gradle-xkcd-plugin'
     vcsUrl = 'https://github.com/gregwhitaker/gradle-xkcd-plugin'
-    description = 'Gradle plugin for retrieving comics from xkcd.com'
+    description = 'Gradle plugin for downloading web comics from xkcd.com'
+    tags = [ 'fun' ]
 
     plugins {
         xkcdPlugin {
             id = 'com.github.gregwhitaker.xkcd'
-            displayName = 'XKCD Plugin'
+            displayName = 'com.github.gregwhitaker.xkcd'
         }
     }
 }
