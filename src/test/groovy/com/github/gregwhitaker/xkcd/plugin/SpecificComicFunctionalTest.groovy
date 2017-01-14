@@ -23,7 +23,7 @@ import spock.lang.Specification
 
 import static org.gradle.testkit.runner.TaskOutcome.SUCCESS
 
-class LatestComicFunctionalTest extends Specification {
+class SpecificComicFunctionalTest extends Specification {
 
     @Rule
     final TemporaryFolder testProjectDir = new TemporaryFolder()
@@ -34,9 +34,9 @@ class LatestComicFunctionalTest extends Specification {
         buildFile = testProjectDir.newFile('build.gradle')
     }
 
-    def "downloads the latest comic when using downloadLatest()"() {
+    def "downloads the comic with the specified id"() {
         given:
-        File image = new File("${testProjectDir.root}/images/latest.png")
+        File image = new File("${testProjectDir.root}/images/1.png")
 
         buildFile << """
             import com.github.gregwhitaker.xkcd.plugin.tasks.DownloadComicTask
@@ -46,8 +46,8 @@ class LatestComicFunctionalTest extends Specification {
             }
 
             task('generateComic', type: DownloadComicTask) {
-                destination = file('${testProjectDir.root}/images/latest.png')
-                downloadLatest()
+                destination = file('${testProjectDir.root}/images/1.png')
+                comic = 1
             }   
         """
 
