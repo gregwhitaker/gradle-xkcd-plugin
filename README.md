@@ -1,13 +1,12 @@
-gradle-xkcd-plugin
-===
+# gradle-xkcd-plugin
 [![Build Status](https://travis-ci.org/gregwhitaker/gradle-xkcd-plugin.svg?branch=master)](https://travis-ci.org/gregwhitaker/gradle-xkcd-plugin)
 
 Gradle plugin for downloading web comics from [xkcd.com](http://xkcd.com).
 
-##Usage
+## Usage
 Please see the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.github.gregwhitaker.xkcd) for instructions on including this plugin in your project.
 
-###Downloading the Latest Comic
+### Downloading the Latest Comic
 
 ```$groovy
 xkcd {
@@ -16,7 +15,7 @@ xkcd {
 }   
 ```
 
-###Downloading a Random Comic
+### Downloading a Random Comic
 
 ```$groovy
 xkcd {
@@ -25,7 +24,7 @@ xkcd {
 }   
 ```
 
-###Downloading a Specific Comic
+### Downloading a Specific Comic
 
 ```$groovy
 xkcd {
@@ -34,11 +33,11 @@ xkcd {
 }   
 ```
 
-##Bugs and Feedback
+## Bugs and Feedback
 
 For bugs, questions and discussions please use the [Github Issues](https://github.com/gregwhitaker/gradle-xkcd-plugin/issues).
 
-##License
+## License
 Copyright 2017 Greg Whitaker
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
