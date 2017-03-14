@@ -32,7 +32,7 @@ import org.gradle.api.tasks.TaskAction
 class DownloadComicTask extends DefaultTask {
 
     private static final Random RAND = new Random(System.currentTimeMillis())
-    private http = new HTTPBuilder('http://xkcd.com')
+    private http = new HTTPBuilder('http://xkcd.com/')
 
     @Input
     @Optional
